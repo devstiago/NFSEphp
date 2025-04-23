@@ -1,5 +1,8 @@
 <?php
-    
+    //TITULO: Emissão NFSe - plugin TecnoSpeed
+    //CRIADO: DANIEL SANTIAGO
+    //DATA:03/2025
+
     $fileInclude = 'NFSeX.php';
     if (file_exists($fileInclude)) {
     include_once $fileInclude;
@@ -7,8 +10,9 @@
 
 
     $NOTAFSe = new NFSeX();
-    
-    echo 'Carregando info Nfse..';
+    $NOTAFSe->xTOKEN = 'SEU_TOKEN_DE INTEGRACAO_AQUI';
+
+    echo 'Carregando info Nfse.. <br> ';
 
     //CARREGA INFO
     $NOTAFSe->PRES_cpfCnpj = '';
@@ -64,7 +68,7 @@
     $NOTAFSe->SERV_ISS_retido = '';
     $NOTAFSe->SERV_ISS_aliquota = '';
 
-    echo 'Emitindo Nfse..';
+    echo 'Emitindo Nfse..<br>';
     
     if($NOTAFSe->PROCESSA_NFSE()){
         
@@ -76,7 +80,7 @@
                 $NOTAFSe->SHOW_NFSE();
             }
             if($NOTAFSe->pRETORNO==2){                    
-                echo 'Erro NFSe';
+                echo 'Erro NFSe! <br>';
             }
                 
         }
